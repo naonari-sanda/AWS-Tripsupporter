@@ -1,0 +1,83 @@
+.detail {
+    .profile {
+        th {
+            white-space: nowrap;
+        }
+    }
+
+    .review {
+        .wrapper {
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 2rem;
+
+            .btn-box {
+                height: 25px;
+            }
+
+            .text {
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        }
+
+    }
+
+
+    .favorite {
+
+        table tr {
+            &:hover {
+                background-color: #d4f0fd;
+            }
+        }
+
+        table th,
+        table td {
+            vertical-align: middle;
+        }
+    }
+
+    .phots {
+
+        .row {
+            width: 100%;
+        }
+
+        .bg {
+            position: relative;
+
+            a {
+                position: relative;
+                width: 100%;
+                margin: auto;
+
+                &:before {
+                    content: "";
+                    display: block;
+                    padding-top: 75%;
+                }
+
+                img {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    margin: auto;
+                    object-fit: cover;
+                }
+            }
+
+            .text {
+                display: block;
+                font-size: 14px;
+                margin-left: 2.5%;
+                margin-bottom: 0;
+            }
+        }
+    }
+}

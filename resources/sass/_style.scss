@@ -1,0 +1,273 @@
+body {
+    background-color: #fff !important;
+}
+
+
+.star-ratings-sprite {
+    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
+    font-size: 0;
+    height: 21px;
+    line-height: 0;
+    overflow: hidden;
+    text-indent: -999em;
+    width: 110px;
+    margin: 0 auto;
+}
+
+.star-ratings-sprite-rating {
+    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
+    background-position: 0 100%;
+    float: left;
+    height: 21px;
+    display: block;
+}
+
+
+#content {
+    z-index: 2;
+    width: 50%;
+    padding: 1em;
+    background: #fff;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none !important;
+    ;
+}
+
+.jumbotron {
+    background-color: #000;
+    border-radius: 0%;
+}
+
+.custom-text {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #999;
+    background: none;
+}
+
+#overlay {
+    /*　要素を重ねた時の順番　*/
+    z-index: 1;
+
+    /*　画面全体を覆う設定　*/
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    /*　画面の中央に要素を表示させる設定　*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cycle {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+//lightbox
+
+.lb-nav a.lb-prev {
+    position: absolute; // 追加
+    left: -80px; // 0から-80pxへ変更
+    opacity: .3;
+}
+
+.lb-nav a.lb-next {
+    position: absolute; // 追加 
+    right: -80px; // 0から-80pxへ変更
+    opacity: .3;
+}
+
+.lb-number {
+    display: none !important;
+}
+
+//背景写真
+.visual {
+    padding: 0;
+
+    .bg {
+        position: relative;
+        width: 100%;
+        height: 280px;
+
+        &::before {
+            /* 透過した黒を上から重ねるイメージ */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* 自由に位置指定 */
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            content: ' ';
+        }
+
+        .country_img {
+            width: 100%;
+            margin: 0 auto;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 23px;
+            font-weight: bold;
+            width: 100%;
+            text-align: center;
+        }
+
+    }
+}
+
+
+//タブメニュー
+.nav {
+    li {
+        width: 25%;
+        text-align: center;
+        line-height: 3;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+}
+
+.active {
+    color: $blue;
+    border-bottom: 2px solid $blue;
+}
+
+article {
+    padding: 20px 0;
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+}
+
+.img {
+    &:hover {
+        opacity: 0.6;
+    }
+}
+
+//フォーム
+.back {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fafafa;
+
+    .wrapper {
+        margin: 60px 0 100px;
+        position: relative;
+        top: -20%;
+        max-width: 340px;
+        width: 100%;
+        border: 1px solid #dbdbdb;
+        background-color: #fff;
+        padding: 20px 30px;
+
+        h2 {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        hr {
+            margin-bottom: 30px;
+        }
+
+        .fill {
+            margin-bottom: 12px;
+        }
+
+        input {
+            background-color: #fafafa;
+        }
+
+        .button {
+            .btn {
+                width: 100%;
+            }
+
+            .btn-success {
+                width: 100%;
+            }
+        }
+
+        .forget {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .else {
+            margin: 18px 0;
+            justify-content: center;
+            align-items: center;
+
+            .line {
+                background-color: #dbdbdb;
+                height: 1px;
+                width: 40%;
+            }
+
+            .text {
+                font-size: 13px;
+                margin: 0 10px;
+                white-space: nowrap;
+            }
+        }
+    }
+
+    .alert {
+        padding: 0.5rem 1.25rem;
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+    /*　画面サイズが767px以下の場合読み込む　*/
+    .back {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fafafa;
+
+        .wrapper {
+            width: 100%;
+            margin: 50px 0 60px;
+        }
+    }
+}
+
+@media screen and (max-width:567px) {
+
+    /*　画面サイズが567px以下の場合読み込む　*/
+    .cycle {
+        display: block;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+}
