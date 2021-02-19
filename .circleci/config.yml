@@ -41,4 +41,7 @@ jobs:
 
             - run: npm run dev
             - run: php artisan migrate
+            - run: 
+                name: php test
+                command: php artisan test
             
