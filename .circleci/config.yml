@@ -3,18 +3,16 @@ jobs:
     build:
         docker:
             - image: circleci/php:7.3-node-browsers
-
-                environment:
-                    APP_DEBUG: true
-                    APP_ENV: testing
-                    DB_CONNECTION: mysql
-                    DB_HOST: db-test
-                    DB_DATABASE: database
-
             - image: circleci/mysql:5.7-ram
-                environment:
-                    MYSQL_ALLOW_EMPTY_PASSWORD: true
-                    MYSQL_DATABASE: database 
+
+        environment:
+            - APP_DEBUG: true
+            - APP_ENV: testing
+            - DB_CONNECTION: mysql
+            - DB_HOST: db-test
+            - DB_DATABASE: database
+            - MYSQL_ALLOW_EMPTY_PASSWORD: true
+            - MYSQL_DATABASE: database 
 
         steps:
             - checkout 
