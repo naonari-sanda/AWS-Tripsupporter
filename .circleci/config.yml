@@ -43,5 +43,5 @@ jobs:
             - run: php artisan migrate
             - run: 
                 name: php test
-                command: php artisan test
+                command: vendor/bin/phpunit
             
