@@ -12,9 +12,9 @@ jobs:
                     DB_DATABASE: database
 
             - image: circleci/mysql:5.7-ram
-            environment:
-                MYSQL_ALLOW_EMPTY_PASSWORD: true
-                MYSQL_DATABASE: database 
+                environment:
+                    MYSQL_ALLOW_EMPTY_PASSWORD: true
+                    MYSQL_DATABASE: database 
 
         steps:
             - checkout 
