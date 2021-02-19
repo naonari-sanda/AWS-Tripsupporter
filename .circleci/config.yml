@@ -10,11 +10,11 @@ jobs:
             - MYSQL_DATABASE: database 
 
         environment:
-            APP_ENV: testing
-            DB_CONNECTION: mysql
-            DB_HOST: db-test
-            DB_PORT: 3306
-            DB_DATABASE: database
+            - APP_ENV: testing
+            - DB_CONNECTION: mysql
+            - DB_HOST: db-test
+            - DB_PORT: 3306
+            - DB_DATABASE: database
 
         steps:
             - checkout 
