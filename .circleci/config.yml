@@ -3,12 +3,12 @@ jobs:
     build:
         docker:
             - image: circleci/php:7.3-node-browsers
-                environment:
-                    - APP_DEBUG: true
-                    - APP_ENV: testing
-                    - DB_CONNECTION: mysql
-                    - DB_DATABASE: database
-                    - DB_USERNAME: db-user
+            environment:
+                - APP_DEBUG: true
+                - APP_ENV: testing
+                - DB_CONNECTION: mysql
+                - DB_DATABASE: database
+                - DB_USERNAME: db-user
 
             - image: circleci/mysql:5.7-ram
                 environment:
