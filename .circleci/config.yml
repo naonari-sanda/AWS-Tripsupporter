@@ -52,7 +52,7 @@ jobs:
             
     deploy:
         docker:
-            - image: cicleci/php:7.3-node-browsers
+            - image: circleci/php:7.3-node-browsers
         steps:
             - add_ssh_keys
             - run:
