@@ -8,7 +8,7 @@
         <img class="card-img-top country_img" src="https://tripsupporter.s3-ap-northeast-1.amazonaws.com/main.jpg" alt="Card image cap" />
 
         <div class="container text">
-            <h1 class="jumbotron-heading font-weight-bold text-light mb-4 h1">さあ 旅に出かけよう！</h1>
+            <h1 class="jumbotron-heading font-weight-bold text-light mb-4 h1">さあ？ 旅に出かけよう！</h1>
 
             <div id="search">
                 <div class="inner">
@@ -125,4 +125,4 @@
     {{$countries->links()}}
 </div>
 
-@endsection 
+@endsection
