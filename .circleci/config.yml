@@ -53,18 +53,18 @@ jobs:
     deploy:
         docker:
             - image: cicleci/php:7.3-node-browsers
-            steps:
-                - add_ssh_keys
-                - run:
-                    name: deploy
-                    command: |
-                    ssh -o StrictHostKeyChecking=no -t ec2-user@${HOST_NAME} "cd /var/www/html/AWS-Tripsopporter/ && \
-                        git pull origin master && \
-                        composer install -n --no-dev --prefer-dist && \
-                        npm ci && \
-                        npm run prod && \
-                        php artisan migrate --force && \
-                        php artisan config:cache"
+        steps:
+            - add_ssh_keys
+            - run:
+                name: deploy
+                command: |
+                ssh -o StrictHostKeyChecking=no -t ec2-user@${HOST_NAME} "cd /var/www/html/AWS-Tripsopporter/ && \
+                    git pull origin master && \
+                    composer install -n --no-dev --prefer-dist && \
+                    npm ci && \
+                    npm run prod && \
+                    php artisan migrate --force && \
+                    php artisan config:cache"
 
     workflows:
         version: 2
