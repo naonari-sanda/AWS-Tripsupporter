@@ -25,6 +25,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(UrlGenerator $url)
     {
-        $url->forceScheme('https');
+        if (config('app.env') === 'production' or config('app.env') === 'staging') {
+            // asset()やurl()がhttpsで生成される
+            URL::forceScheme('https');
+        }
     }
 }
