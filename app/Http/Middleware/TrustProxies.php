@@ -10,7 +10,7 @@ class TrustProxies extends Middleware
     /**
      * The trusted proxies for this application.
      *
-     * @var array|string|null
+     * @var array|string
      */
     protected $proxies = '*';
 
@@ -19,6 +19,5 @@ class TrustProxies extends Middleware
      *
      * @var int
      */
-
     protected $headers = Request::HEADER_X_FORWARDED_AWS_ELB;
 }
