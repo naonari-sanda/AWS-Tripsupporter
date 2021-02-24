@@ -54,7 +54,7 @@
 <div class="container row mx-auto">
     <div class="col-lg-4 mb-2">
         <img class="rounded-circle mx-auto d-flex justify-content-center mb-3" src="https://tripsupporter.s3-ap-northeast-1.amazonaws.com/find.png" alt="" width="140" height="140">
-        <h2 class="text-center">見つけよう</h2>
+        <h2 class="text-center">見つけよ</h2>
         <p class="text-center">「海外に行きたい！」しかし「どこに行くか？」。国々のそれぞれの良いところを紹介します。ぜひ、次の旅行先の決定の参考にしてみてくださいね。</p>
         <p class="d-flex justify-content-center">
             <a class="btn  btn-primary center-block" href="#" role="button">見つける &raquo;</a>
