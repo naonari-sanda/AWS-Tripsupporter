@@ -11806,6 +11806,16 @@ nav .dropdown-menu {
   margin-bottom: 0;
 }
 
+@media screen and (max-width: 567px) {
+  .mypage {
+    /*　画面サイズが567px以下の場合読み込む　*/
+  }
+
+  .mypage .mb {
+    display: none;
+  }
+}
+
 .error {
   height: 40rem;
 }
