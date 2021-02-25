@@ -1,7 +1,7 @@
 <h2 font-weight-bold>Photo gallery</h2>
 
 @auth
-<a @click="showImage" type="button" class="btn btn-danger mb-2">画像を投稿しよう！</a>
+<button @click="showImage" type="button" class="btn btn-danger mb-2">画像を投稿しよう！</button>
 @endauth
 <hr>
 
