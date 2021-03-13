@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Session;
 use Storage;
+use Carbon\Carbon;
+use Illuminate\Http\File;
 use App\Models\Review;
 use App\Models\Image;
 use Illuminate\Http\Request;
@@ -15,8 +17,19 @@ class ReviewController extends Controller
     //ログインユーザーレビュー追加orアップデート
     public function createReview(ReviewRequest $request)
     {
-        if ($file = $request->imgpath) {
-            $path = Storage::disk('s3')->put('/', $file, 'public');
+        if ($file = $request->file('imgpath')) {
+            $now = date_format(Carbon::now(), 'YmdHis');
+            $name = $file->getClientOriginalName();
+
+            $file_path = storage_path('app/tmp/') . $now . '_' . $name;
+
+            $img = \InterventionImage::make($file)
+                ->resize(600, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->save($file_path);
+
+
+            $path = Storage::disk('s3')->put('/review', new File($file_path), 'public');
             $fileName = Storage::disk('s3')->url($path);
         } else {
             $fileName = '';
@@ -66,20 +79,31 @@ class ReviewController extends Controller
     //画像アップロード
     public function upload(ImageRequest $request)
     {
-        if ($file = $request->imgpath) {
-            $path = Storage::disk('s3')->put('/', $file, 'public');
-            $faliName = Storage::disk('s3')->url($path);
+        if ($file = $request->file('imgpath')) {
+            $now = date_format(Carbon::now(), 'YmdHis');
+            $name = $file->getClientOriginalName();
+
+            $file_path = storage_path('app/tmp/') . $now . '_' . $name;
+
+            $img = \InterventionImage::make($file)
+                ->resize(600, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->save($file_path);
+
+
+            $path = Storage::disk('s3')->putFile('/photo', new File($file_path), 'public');
+            $fileName = Storage::disk('s3')->url($path);
         }
 
         $check = Image::create(
             [
                 'user_id' => $request->user_id,
                 'country_id' => $request->country_id,
-                'imgpath' => $faliName
+                'imgpath' => $fileName
             ]
         );
 
-        if ($check) {
+        if ($img) {
             session()->flash('success_message', '画像を追加しました');
         } else {
             session()->flash('danger_message', '画像の保存に失敗しました');
